@@ -2,6 +2,7 @@
 <html>
 <head>
   <script src="Java.js" defer></script>
+  <link rel="stylesheet" href="./style.css">
 </head>
 <!-- The DOM -->
 <body>
@@ -9,6 +10,14 @@
     Rock Paper Scissors
   </h1>
 </body>
-
+  <div class ="user_input">
+    <btn id="rock" onclick="game_schema(0)">Rock</btn>
+    <btn id="paper" onclick="game_schema(1)">Paper</btn>
+    <btn id="scissors" onclick="game_schema(2)">Scissors</btn>
+  </div>
+  <div class="scores">
+    <div id="player_score"></div>
+    <div id="comp_score"></div>
+  </div>
 </body>
 </html>

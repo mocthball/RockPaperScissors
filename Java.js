@@ -1,5 +1,10 @@
-var player_score = 0;
-var computer_score = 0;
+let player_score = 0;
+let computer_score = 0;
+let WINNING_POINTS = 5;
+let PLAYER_ALLTIME_SCORE = 0;
+let COMPUTER_ALLTIME_SCORE = 0;
+
+
 
 function game(player, computer) {
     //0 = Rock
@@ -26,19 +31,22 @@ function game(player, computer) {
     return;
 }
 
-while (player_score < 3 && computer_score < 3)
-{
-    alert('Player Score: ' + player_score + '\n Computer Score: ' + computer_score);
-    var player_input = prompt('0 = Rock 1 = Paper 2 = Scissors');
+function game_schema(player_input){
     var computer_input = Math.floor(Math.random() * 3 | 0);
-    alert(computer_input);
     game(player_input, computer_input);
-    alert('Player input: ' + player_input + '\n Computer input: ' +  computer_input);
-}
+    document.getElementById("player_score").innerHTML = "Player: " + player_score;
+    document.getElementById("comp_score").innerHTML = "Computer: " + computer_score;
 
-if (player_score === 3) {
-    alert("Player Wins");
-}
-else {
-    alert("Computer Wins");
+    if (player_score === WINNING_POINTS) {
+        alert("Player Wins \n Restart");
+        player_score = 0;
+        computer_score = 0;
+        PLAYER_ALLTIME_SCORE++;
+    }
+    else if (computer_score === WINNING_POINTS){
+        alert("Computer Wins \n Restart");
+        player_score = 0;
+        computer_score = 0;
+        COMPUTER_ALLTIME_SCORE++;
+    }
 }
